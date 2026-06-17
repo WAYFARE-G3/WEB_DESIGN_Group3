@@ -118,32 +118,34 @@ async function handleRegisterSubmit(e) {
     }
     
     // Disable submit button and show loading state
+    let originalSubmitText = 'Create Account';
     if (submitBtn) {
+        originalSubmitText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Creating account...';
     }
     if (loadingDiv) {
         loadingDiv.style.display = 'block';
     }
-    
+
     // Clear previous errors
     clearRegisterError();
-    
+
     // Perform registration
     const result = await register(formData);
-    
+
     // Re-enable submit button
     if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Register';
+        submitBtn.textContent = originalSubmitText;
     }
     if (loadingDiv) {
         loadingDiv.style.display = 'none';
     }
-    
+
     if (result.success) {
         console.log('Registration successful');
-        
+
         // Show success message
         if (errorDiv) {
             errorDiv.style.display = 'block';
@@ -151,7 +153,7 @@ async function handleRegisterSubmit(e) {
             errorDiv.style.color = '#28a745';
             errorDiv.textContent = 'Registration successful! Redirecting...';
         }
-        
+
         // Redirect after short delay
         setTimeout(() => {
             window.location.href = '/index.html';
@@ -161,6 +163,7 @@ async function handleRegisterSubmit(e) {
         showRegisterError(result.message || 'Registration failed');
     }
 }
+
 
 /**
  * Validate register form
