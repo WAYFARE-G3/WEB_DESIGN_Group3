@@ -62,30 +62,78 @@ function updateNavbarForLoggedInUser(user) {
         return;
     }
     
-    // Create logged in menu HTML
-    const menuHTML = `
-        <div class="navbar__user-menu">
-            <div class="navbar__user-info">
-                <span class="navbar__user-name">${user.fullName || user.username}</span>
-            </div>
-            <div class="navbar__user-actions">
-                <a href="profile.html" class="btn-nav-auth btn-nav-auth--profile">Profile</a>
-                <button class="btn-nav-auth btn-nav-auth--logout" onclick="handleLogout()">Logout</button>
+    const displayName = user.fullName || user.username || 'User';
+    const initials = displayName.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    const isAdmin = user.role === 'ADMIN';
+
+    const adminMenuItem = isAdmin ? `
+                <a href="admin-tours.html" class="user-dropdown__item" role="menuitem" style="color:var(--primary);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Admin Panel
+                </a>
+                <div class="user-dropdown__divider"></div>` : '';
+
+    const desktopHTML = `
+        <div class="user-dropdown" id="userDropdown">
+            <button class="user-dropdown__trigger" id="userDropdownTrigger" aria-expanded="false" aria-haspopup="true">
+                <span class="user-dropdown__avatar">${initials}</span>
+                <span class="user-dropdown__name">${displayName}</span>
+                <svg class="user-dropdown__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+                    <path d="m6 9 6 6 6-6"/>
+                </svg>
+            </button>
+            <div class="user-dropdown__menu" id="userDropdownMenu" role="menu">
+                <div class="user-dropdown__header">
+                    <span class="user-dropdown__header-name">${displayName}</span>
+                    <span class="user-dropdown__header-email">${user.email || ''}</span>
+                </div>
+                <div class="user-dropdown__divider"></div>
+                ${adminMenuItem}
+                <a href="profile.html" class="user-dropdown__item" role="menuitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    My Profile
+                </a>
+                <div class="user-dropdown__divider"></div>
+                <button class="user-dropdown__item user-dropdown__item--danger" role="menuitem" onclick="handleLogout()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Logout
+                </button>
             </div>
         </div>
     `;
+
+    const mobileHTML = `
+        <div class="navbar__mobile-user">
+            <span class="user-dropdown__avatar user-dropdown__avatar--sm">${initials}</span>
+            <span class="user-dropdown__name">${displayName}</span>
+        </div>
+        ${isAdmin ? `<a href="admin-tours.html" class="btn-ghost-nav" style="color:var(--primary);">Admin Panel</a>` : ''}
+        <a href="profile.html" class="btn-ghost-nav">My Profile</a>
+        <button class="btn-ghost-nav text-danger" onclick="handleLogout()" style="background:none;border:none;cursor:pointer;text-align:left;color:var(--destructive);">Logout</button>
+    `;
     
-    // Update desktop navbar
-    if (navbarActions) {
-        navbarActions.innerHTML = menuHTML;
+    if (navbarActions) navbarActions.innerHTML = desktopHTML;
+    if (navbarMobileActions) navbarMobileActions.innerHTML = mobileHTML;
+
+    // Wire up dropdown toggle
+    const trigger = document.getElementById('userDropdownTrigger');
+    const menu = document.getElementById('userDropdownMenu');
+    const dropdown = document.getElementById('userDropdown');
+
+    if (trigger && menu) {
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = dropdown.classList.toggle('open');
+            trigger.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
-    
-    // Update mobile navbar
-    if (navbarMobileActions) {
-        navbarMobileActions.innerHTML = menuHTML;
-    }
-    
-    console.log('Navbar updated for logged in user');
 }
 
 /**
@@ -123,17 +171,9 @@ function updateNavbarForLoggedOutUser() {
  * Handle logout button click
  */
 async function handleLogout() {
-    // Show confirmation dialog (optional)
-    if (confirm('Are you sure you want to logout?')) {
-        const result = await logout();
-        
-        if (result.success) {
-            console.log('Logout successful');
-            // Redirect to home page
-            window.location.href = '/index.html';
-        } else {
-            alert('Logout failed: ' + result.message);
-        }
+    const result = await logout();
+    if (result.success) {
+        window.location.href = '/index.html';
     }
 }
 

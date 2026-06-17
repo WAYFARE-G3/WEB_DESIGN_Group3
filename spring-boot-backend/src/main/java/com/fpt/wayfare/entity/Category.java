@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Table: categories
@@ -42,5 +43,6 @@ public class Category extends BaseEntity {
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     @Builder.Default
+    @JsonIgnore
     private List<Tour> tours = new ArrayList<>();
 }
