@@ -1,3 +1,98 @@
-.DS_Store
-Thumbs.db
+# =============================================
+# Spring Boot + Maven - .gitignore
+# =============================================
+
+# ----- Maven build output -----
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ----- Compiled files -----
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# ----- Logs -----
 *.log
+logs/
+log/
+
+# ----- Cấu hình nhạy cảm (KHÔNG up lên GitHub) -----
+application-prod.properties
+application-local.properties
+*.env
+.env
+.env.*
+
+# =============================================
+# IDE - IntelliJ IDEA
+# =============================================
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# =============================================
+# IDE - Eclipse / STS
+# =============================================
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# =============================================
+# IDE - VS Code
+# =============================================
+.vscode/
+!.vscode/extensions.json
+
+# =============================================
+# IDE - NetBeans
+# =============================================
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# =============================================
+# Hệ điều hành
+# =============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# =============================================
+# Docker (nếu có)
+# =============================================
+.dockerignore
+
+# =============================================
+# Misc
+# =============================================
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+HELP.md
