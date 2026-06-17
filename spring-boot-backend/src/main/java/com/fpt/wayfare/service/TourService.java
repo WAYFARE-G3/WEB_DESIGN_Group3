@@ -1,31 +1,28 @@
 package com.fpt.wayfare.service;
 
 import com.fpt.wayfare.entity.Tour;
+import com.fpt.wayfare.dto.TourRequest;
 import java.util.List;
 
 public interface TourService {
-    /**
-     * Retrieve all tours from the database.
-     * @return List of all tours.
-     */
+    /** Retrieve all tours from the database. */
     List<Tour> getAllTours();
 
-    /**
-     * Retrieve all active tours.
-     * @return List of active tours.
-     */
+    /** Retrieve all active tours. */
     List<Tour> getActiveTours();
 
-    /**
-     * Find a tour by its ID.
-     * @param id The ID of the tour.
-     * @return The Tour entity if found.
-     */
+    /** Find a tour by its ID. */
     Tour getTourById(Long id);
 
-    /**
-     * Soft-delete a tour by marking it inactive.
-     * @param id The ID of the tour.
-     */
+    /** Create a new tour (Admin only). */
+    Tour createTour(TourRequest request);
+
+    /** Update an existing tour (Admin only). */
+    Tour updateTour(Long id, TourRequest request);
+
+    /** Soft-delete a tour by marking it inactive (Admin only). */
     void deleteTour(Long id);
+
+    /** Toggle the active status of a tour (Admin only). */
+    void toggleTourStatus(Long id);
 }
