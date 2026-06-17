@@ -30,4 +30,10 @@ public class TourController {
         Tour tour = tourService.getTourById(id);
         return ResponseEntity.ok(tour);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTour(@PathVariable Long id) {
+        tourService.deleteTour(id);
+        return ResponseEntity.noContent().build();
+    }
 }
