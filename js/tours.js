@@ -57,11 +57,11 @@
 
     return `
       <div class="col-md-6 col-lg-4" data-tour-item="${tour.id}">
-        <article class="card-surface h-100 tour-card">
+        <article class="card-surface h-100 tour-card d-flex flex-column">
           <div class="img-zoom" style="aspect-ratio: 16/10">
             <img src="${tour.imageUrl || "assets/placeholder-tour.jpg"}" alt="${tour.title}" loading="lazy">
           </div>
-          <div class="p-4 d-flex flex-column h-100">
+          <div class="p-4 d-flex flex-column flex-grow-1">
             <div class="d-flex justify-content-between align-items-start mb-2">
               <span class="badge bg-light text-primary border">${tour.durationDays} days · ${tour.durationNights || tour.durationDays - 1} nights</span>
               <div class="stars">
@@ -79,7 +79,7 @@
               <div class="d-flex gap-2">
                 <a href="destination-detail.html?id=${tour.id}" class="btn-cta btn-cta--sm">Details</a>
                 <button type="button" class="btn btn-outline-danger btn-sm" data-tour-delete="${tour.id}">
-                  Xóa
+                  Delete
                 </button>
               </div>
             </div>
@@ -94,7 +94,7 @@
       button.addEventListener("click", async () => {
         const tourId = button.dataset.tourDelete;
         const tour = toursState.find((item) => String(item.id) === String(tourId));
-        const confirmed = window.confirm(`Bạn có chắc muốn xóa tour "${tour?.title || tourId}" không?`);
+        const confirmed = window.confirm(`Are you sure you want to delete the tour "${tour?.title || tourId}"?`);
 
         if (!confirmed) return;
 
@@ -108,7 +108,7 @@
 
     try {
       button.disabled = true;
-      button.textContent = "Đang xóa...";
+      button.textContent = "Deleting...";
 
       const response = await fetch(`${API_URL}/${tourId}`, {
         method: "DELETE",
@@ -120,10 +120,10 @@
 
       toursState = toursState.filter((tour) => String(tour.id) !== String(tourId));
       renderTours(toursState);
-      showFeedback("Xóa tour thành công.", "success");
+      showFeedback("Tour deleted successfully.", "success");
     } catch (error) {
       console.error("Error deleting tour:", error);
-      showFeedback("Không thể xóa tour. Vui lòng thử lại.", "danger");
+      showFeedback("Could not delete tour. Please try again.", "danger");
       button.disabled = false;
       button.textContent = originalLabel;
     }
