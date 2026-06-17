@@ -43,13 +43,13 @@ public class Destination extends BaseEntity {
     /** Latitude coordinate — used for map display. */
     @DecimalMin("-90.0")
     @DecimalMax("90.0")
-    @Column(precision = 10, scale = 7)
+    @Column(columnDefinition = "DECIMAL(10,7)")
     private Double latitude;
 
     /** Longitude coordinate. */
     @DecimalMin("-180.0")
     @DecimalMax("180.0")
-    @Column(precision = 10, scale = 7)
+    @Column(columnDefinition = "DECIMAL(10,7)")
     private Double longitude;
 
     /** Whether this destination is highlighted on the homepage. */
