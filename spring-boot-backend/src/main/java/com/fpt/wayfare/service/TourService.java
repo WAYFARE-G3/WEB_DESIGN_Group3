@@ -22,4 +22,10 @@ public interface TourService {
      * @return The Tour entity if found.
      */
     Tour getTourById(Long id);
+
+    /**
+     * Soft-delete a tour by marking it inactive.
+     * @param id The ID of the tour.
+     */
+    void deleteTour(Long id);
 }
