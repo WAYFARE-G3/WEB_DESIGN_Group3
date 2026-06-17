@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Wayfare</title>
+  <meta name="description" content="Get in touch with the Wayfare team. We answer every email within one business day.">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  >
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="site" data-page="contact">
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <span class="navbar__logo">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        </span>
+        <span class="navbar__name">Wayfare</span>
+      </a>
+      <nav class="navbar__nav">
+        <a href="index.html" class="btn-ghost-nav" data-nav-link="home">Home</a>
+        <a href="destinations.html" class="btn-ghost-nav" data-nav-link="destinations">Destinations</a>
+        <a href="tours.html" class="btn-ghost-nav" data-nav-link="tours">Tours</a>
+        <a href="blog.html" class="btn-ghost-nav" data-nav-link="blog">Blog</a>
+        <a href="contact.html" class="btn-ghost-nav" data-nav-link="contact">Contact</a>
+      </nav>
+      <div class="navbar__actions">
+        <a href="login.html" class="btn-nav-auth btn-nav-auth--login" data-nav-link="login">Login</a>
+        <a href="register.html" class="btn-nav-auth btn-nav-auth--register" data-nav-link="register">Register</a>
+      </div>
+      <button class="navbar__toggle" data-nav-toggle aria-label="Toggle menu" aria-expanded="false">
+        <svg class="icon" data-icon-menu viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16"/><path d="M4 18h16"/><path d="M4 6h16"/></svg>
+        <svg class="icon hidden" data-icon-close viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="navbar__mobile" data-nav-mobile>
+      <div class="navbar__mobile-inner">
+        <nav class="navbar__mobile-nav">
+          <a href="index.html" class="btn-ghost-nav" data-nav-link="home">Home</a>
+          <a href="destinations.html" class="btn-ghost-nav" data-nav-link="destinations">Destinations</a>
+          <a href="tours.html" class="btn-ghost-nav" data-nav-link="tours">Tours</a>
+          <a href="blog.html" class="btn-ghost-nav" data-nav-link="blog">Blog</a>
+          <a href="contact.html" class="btn-ghost-nav" data-nav-link="contact">Contact</a>
+          <div class="navbar__mobile-actions">
+            <a href="login.html" class="btn-nav-auth btn-nav-auth--login" data-nav-link="login">Login</a>
+            <a href="register.html" class="btn-nav-auth btn-nav-auth--register" data-nav-link="register">Register</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="container py-5">
+      <div class="row g-4 g-lg-5 align-items-start">
+        <div class="col-12 col-lg-5 d-grid gap-4">
+
+          <!-- CEO Note Card -->
+          <div class="ceo-card">
+            <div class="ceo-card__header">
+              <img src="assets/thiri.jpg" alt="Thiri Min" class="ceo-card__photo">
+              <div class="ceo-card__meta">
+                <div class="ceo-card__note-label">A note from our CEO</div>
+                <div class="ceo-card__name">Thiri Min</div>
+                <div class="ceo-card__title">Founder &amp; CEO, Wayfare</div>
+                <a href="https://www.linkedin.com/in/thiri-min" class="ceo-card__linkedin" target="_blank" rel="noopener">
+                  <svg class="icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  linkedin.com/in/thiri-min
+                </a>
+              </div>
+            </div>
+            <div class="ceo-card__body">
+              <svg class="ceo-card__quote" viewBox="0 0 24 24" fill="currentColor"><path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.95.76-3 .66-1.06 1.5-1.78 2.5-2.16l-1.0-1.44c-1.18.5-2.17 1.34-2.96 2.53-.8 1.18-1.2 2.43-1.2 3.75 0 1.06.27 1.9.8 2.54.54.63 1.24.95 2.1.95.87 0 1.57-.27 2.1-.8.54-.54.81-1.22.81-2.06zm8 0c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.95.76-3 .66-1.06 1.5-1.78 2.5-2.16l-1-1.44c-1.18.5-2.17 1.34-2.96 2.53-.8 1.18-1.2 2.43-1.2 3.75 0 1.06.27 1.9.8 2.54.54.63 1.24.95 2.1.95.87 0 1.57-.27 2.1-.8.54-.54.81-1.22.81-2.06z"/></svg>
+              <p>Every trip we craft starts with a real conversation. <a href="#contact-form" class="ceo-card__link">Share your dream destination</a> — I personally read every message that lands here.</p>
+            </div>
+          </div>
+
+          <!-- Info Cards -->
+          <div class="info-card">
+            <div class="info-card__icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-card__label">Head Office</div>
+              <div class="info-card__primary">218 Thang Long Avenue</div>
+              <div class="info-card__secondary">Viet Nam 449268</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card__icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="info-card__label">Phone</div>
+              <div class="info-card__primary">+65 6123 4567</div>
+              <div class="info-card__secondary">Mon–Sat · 9am–7pm SGT</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card__icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <div class="info-card__label">Email</div>
+              <div class="info-card__primary">hello@wayfare.travel</div>
+              <div class="info-card__secondary">support@wayfare.travel</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card__icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="info-card__label">Live Chat</div>
+              <div class="info-card__primary">24/7 support, every day</div>
+              <div class="info-card__secondary">Avg. reply under 3 min</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-7 d-grid gap-4">
+          <form id="contact-form" class="card-surface p-4 p-sm-5" novalidate>
+            <h2 class="mb-1">Send us a message</h2>
+            <p class="text-secondary mb-0">Required fields are marked with <span style="color:var(--accent)">*</span></p>
+
+            <div id="form-success" class="form-success alert alert-success mt-4 mb-0" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              <span>Thanks! Your message has been sent. We'll be in touch within 24 hours.</span>
+            </div>
+
+            <div class="row g-4 mt-1">
+              <div class="col-12 col-md-6">
+                <label for="contact-name" class="field-label form-label">FULL NAME *</label>
+                <input id="contact-name" type="text" name="name" class="field form-control" autocomplete="name">
+                <span class="field-error invalid-feedback d-block" data-error="name"></span>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="contact-email" class="field-label form-label">EMAIL ADDRESS *</label>
+                <input id="contact-email" type="email" name="email" class="field form-control" autocomplete="email">
+                <span class="field-error invalid-feedback d-block" data-error="email"></span>
+              </div>
+              <div class="col-12">
+                <label for="contact-phone" class="field-label form-label">PHONE NUMBER</label>
+                <input id="contact-phone" type="tel" name="phone" class="field form-control" autocomplete="tel">
+                <span class="field-error invalid-feedback d-block" data-error="phone"></span>
+              </div>
+              <div class="col-12">
+                <label for="contact-message" class="field-label form-label">MESSAGE *</label>
+                <textarea id="contact-message" name="message" rows="5" class="field form-control"></textarea>
+                <span class="field-error invalid-feedback d-block" data-error="message"></span>
+              </div>
+            </div>
+
+            <button type="submit" id="btn-send-message" class="btn-send-msg mt-4">
+              <svg class="icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              Send message
+            </button>
+          </form>
+
+          <div class="cta-box">
+            <h3>Prefer a call?</h3>
+            <p>Book a free 20-minute trip consultation with <a href="#" class="cta-box__link">one of our destination experts</a>.</p>
+            <button type="button" class="btn-cta btn-cta--sm" id="btn-schedule-call">Schedule a call</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="index.html" class="navbar__brand">
+          <span class="navbar__logo">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          </span>
+          <span class="navbar__name">Wayfare</span>
+        </a>
+        <p class="footer__desc">Discover handcrafted journeys to the world's most extraordinary destinations.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook"><svg class="icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg class="icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="Youtube"><svg class="icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer__col-title">Explore</h4>
+        <ul class="footer__links">
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="tours.html">Tours</a></li>
+          <li><a href="blog.html">Travel Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-title">Company</h4>
+        <ul class="footer__links">
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="index.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-title">Support</h4>
+        <ul class="footer__links">
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="index.html">Privacy Policy</a></li>
+          <li><a href="index.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">© <span id="footer-year"></span> Wayfare Travel. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
