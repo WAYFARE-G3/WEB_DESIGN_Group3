@@ -1,33 +1,41 @@
 package com.fpt.wayfare.controller;
 
+import com.fpt.wayfare.dto.TourUpdateRequest;
 import com.fpt.wayfare.entity.Tour;
 import com.fpt.wayfare.service.TourService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/api/tours")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*") 
+@CrossOrigin(origins = "*")
 public class TourController {
 
     private final TourService tourService;
 
-    
     @GetMapping
     public ResponseEntity<List<Tour>> getAllActiveTours() {
         List<Tour> tours = tourService.getActiveTours();
         return ResponseEntity.ok(tours);
     }
 
-   
     @GetMapping("/{id}")
     public ResponseEntity<Tour> getTourById(@PathVariable Long id) {
         Tour tour = tourService.getTourById(id);
         return ResponseEntity.ok(tour);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Tour> updateTour(
+            @PathVariable Long id,
+            @Valid @RequestBody TourUpdateRequest request
+    ) {
+        Tour updatedTour = tourService.updateTour(id, request);
+        return ResponseEntity.ok(updatedTour);
     }
 }
