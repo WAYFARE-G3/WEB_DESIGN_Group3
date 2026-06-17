@@ -159,6 +159,11 @@ async function handleRegisterSubmit(e) {
     } else {
         console.log('Registration failed:', result.message);
         showRegisterError(result.message || 'Registration failed');
+
+        // Keep error visible for 5 seconds
+        setTimeout(() => {
+            clearRegisterError();
+        }, 5000);
     }
 }
 

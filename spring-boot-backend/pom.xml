@@ -13,10 +13,11 @@
         <relativePath/>
     </parent>
 
+
     <!-- ===== Project Info ===== -->
     <groupId>com.wayfare</groupId>
     <artifactId>wayfare-backend</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0</version> 
     <packaging>jar</packaging>
     <name>WayFare Backend</name>
     <description>Spring Boot + JPA/Hibernate backend for WayFare travel platform</description>

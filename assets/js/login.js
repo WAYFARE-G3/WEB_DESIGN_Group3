@@ -115,7 +115,12 @@ async function handleLoginSubmit(e) {
     } else {
         console.log('Login failed:', result.message);
         showLoginError(result.message || 'Login failed');
-        
+
+        // Keep error visible for 5 seconds
+        setTimeout(() => {
+            clearLoginError();
+        }, 5000);
+
         // Clear password field
         form.querySelector('input[name="password"]').value = '';
     }
